@@ -1,11 +1,19 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html>
   <head> 
 
-    <title> </title>
+    <title> Rendering a HTML Page </title>
+    <link rel="stylesheet" href = "{% static 'css/index.css'  %}">
   </head>
   <body>
   <p>  Hello This is me. This is the first html page we render inside the Django project </p>
+
+   <a href = "{% url 'redirect' %}"> When we click this Redirect you to the google</a>
+   <br/>
+   <a href = "{% url 'index' %}"> Call the index view function </a>
   </body>
 
 </html>

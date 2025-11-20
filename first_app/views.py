@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse,HttpResponseNotFound
+from django.http import HttpResponse,HttpResponseNotFound, HttpResponseRedirect
 
 ## Here, django.http and django.shortcuts are python module ( file or package containing code)
 ## Inside HttpResponse and HttpResponseNotFound are class defined inside django.http module
@@ -79,3 +79,31 @@ def index1 (request, z):
        '''
   return HttpResponse(html)
 
+
+
+
+## Use of class HttpResponseNotFound 
+# This class give if something is not found this class give the message
+
+number = [1,2,3,4,5,6,7,8]
+ 
+def found (request, input_integer):
+   for n in number:
+     if n == input_integer:
+       return HttpResponse("Your typed Number is in the list")
+     else:
+       return HttpResponseNotFound("Your typed number is not not the list")
+     
+
+
+## Use of class HttpResponseRedirect
+# We use url in this class which direct to the specified link
+
+def redirect(request):
+  return HttpResponseRedirect('https://www.google.com')
+
+
+
+
+
+   
