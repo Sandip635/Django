@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head> 
+
+    <title> Rendering a HTML Page </title>
+
+  </head>
+  <body>
+
+    <p>  This is the person display page of our Django project. </p>
+    <h2> Person Information </h2>
+    <ul>
+      
+        <li> Name: {{ selected_person.name }}, Age: {{ selected_person.age }}, Occupation: {{ selected_person.occupation}} </li>
+      
+    </ul>
+
+    
+     
+    <a href = "{% url 'index' %}"> Go back to Home Page </a>
+
+
+
+  
+
+
+
+
+
+
+
+  
+  </body>
+</html>
+

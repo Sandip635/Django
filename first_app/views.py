@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse,HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponse,HttpResponseNotFound, HttpResponseRedirect, Http404 
 
 ## Here, django.http and django.shortcuts are python module ( file or package containing code)
 ## Inside HttpResponse and HttpResponseNotFound are class defined inside django.http module
@@ -43,6 +43,12 @@ students = [
         "education": "MBA in Business Analytics"
     },
 ]
+
+
+def contact(request):
+  return render(request, 'contact.html', {'students': students})
+
+
 
 # Here, index view gives all the dictionary of list 
 # we make anchor tag inside index view through we make the implementation of DYNAMIC URL
@@ -101,6 +107,30 @@ def found (request, input_integer):
 
 def redirect(request):
   return HttpResponseRedirect('https://www.google.com')
+
+
+persons = [
+    {'id': 1, 'name': 'Ram', 'age': 20, 'skills': 'Python'},
+    {'id': 2, 'name': 'Shyam', 'age': 22, 'skills': 'Django'},
+    {'id': 3, 'name': 'Hari', 'age': 19, 'skills': 'JavaScript'},
+    {'id': 4, 'name': 'Gita', 'age': 21, 'skills': 'React'},
+]
+
+
+def person (request):
+  return render(request, 'person.html', {'persons': persons})
+
+
+
+def person_display(request, person_id):
+   for p in persons:
+      selected_person = " "
+      if p['id'] == person_id:
+          selected_person = p
+          break
+      return render(request, 'details.html', {'selected_person': selected_person})
+  
+    
 
 
 
